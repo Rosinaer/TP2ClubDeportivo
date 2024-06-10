@@ -37,16 +37,21 @@ namespace TP2ClubDeportivo
         }
         public void GuardarEnBaseDeDatos()
         {
-            MySqlConnection sqlCon = new MySqlConnection();
+            Conexion miConexion = Conexion.getInstancia();
+            MySqlConnection sqlCon = miConexion.CrearConexion();
+
+            //MySqlConnection sqlCon = new MySqlConnection();
 
             try
             {
-                sqlCon.Open();
+                //sqlCon.Open();
                 // Crear un comando SQL para insertar datos en la tabla Facturas
-                string query = "INSERT INTO Facturas (Fecha, Total) VALUES ('2024-06-03', 102.50)";
+                string query = "INSERT INTO suplementos (Id,Nombre,PorcentajeGanancia,PrecioLista) VALUES (null,'Colageno', 0.05, 36000)";
+                //string query = "INSERT INTO facturas (Id,Fecha, Total) VALUES (null,'2024-06-03', 102.50)";
                 MySqlCommand comando = new MySqlCommand(query, sqlCon);
-                comando.Parameters.AddWithValue("@Fecha", Fecha);
-                comando.Parameters.AddWithValue("@Total", CalcularTotal());
+                sqlCon.Open();
+                // comando.Parameters.AddWithValue("@Fecha", Fecha);
+                // comando.Parameters.AddWithValue("@Total", CalcularTotal());
 
 
                 comando.ExecuteNonQuery();

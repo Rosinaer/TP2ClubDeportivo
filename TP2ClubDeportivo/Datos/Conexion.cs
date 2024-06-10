@@ -14,21 +14,21 @@ namespace TP2ClubDeportivo.Datos
         private string puerto;
         private string usuario;
         private string clave;
-        private static Conexion? con = null;
+        private static Conexion con = null;
         private Conexion() // asignamos valores a las variables de la conexion
 
         {
-            this.baseDatos = "Club_Deportivo";
+            this.baseDatos = "club_Deportivo";
             this.servidor = "localhost";
             this.puerto = "3306";
             this.usuario = "root";
-            this.clave = "123456";
+            this.clave = "";
         }
         // proceso de interacción
         public MySqlConnection CrearConexion()
         {
             // instanciamos una conexion
-            MySqlConnection? cadena = new MySqlConnection();
+            MySqlConnection cadena = new MySqlConnection();
             // el bloque try permite controlar errores
             try
             {
@@ -41,7 +41,7 @@ namespace TP2ClubDeportivo.Datos
             catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
             return cadena;
         }
@@ -51,6 +51,7 @@ namespace TP2ClubDeportivo.Datos
             if (con == null) // quiere decir que la conexion esta cerrada
             {
                 con = new Conexion(); // se crea una nueva
+
             }
             return con;
         }

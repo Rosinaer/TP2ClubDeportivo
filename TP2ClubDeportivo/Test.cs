@@ -215,7 +215,7 @@ namespace TP2ClubDeportivo
         }
         private static void Salir()
         {
-            factura.GuardarEnBaseDeDatos();
+           // factura.GuardarEnBaseDeDatos();
             Console.WriteLine("Gracias por usar el programa. ¡Hasta luego!");
             Console.WriteLine("Presiona Enter para salir...");
             Console.ReadLine();

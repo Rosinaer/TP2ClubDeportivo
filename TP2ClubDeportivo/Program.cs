@@ -30,6 +30,7 @@ namespace TP2ClubDeportivo
                 Console.ReadLine(); // Espera a que el usuario presione Enter
 
                 // Aca se pueden realizar consultas o realizar otras operaciones en la base de datos
+                Test.MostrarMenu();
 
                 // Cerrar la conexión
                 conexion.Close();
@@ -38,7 +39,7 @@ namespace TP2ClubDeportivo
             {
                 Console.WriteLine("Error al conectar a la base de datos: " + ex.Message);
             }
-            Test.MostrarMenu();
+            //Test.MostrarMenu();
         }
 
     }
